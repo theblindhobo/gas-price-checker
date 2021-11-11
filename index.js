@@ -1,7 +1,9 @@
 const { Client, Intents } = require('discord.js');
-const { token } = require('./config.json');
+
 const fs = require('fs');
 const app = require('express')();
+
+require('dotenv').config();
 
 const intents = [
   "GUILDS", "GUILD_MEMBERS", "GUILD_PRESENCES",
@@ -31,4 +33,4 @@ for(const file of eventFiles) {
   }
 }
 
-client.login(token);
+client.login(process.env.TOKEN);

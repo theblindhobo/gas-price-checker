@@ -4,6 +4,8 @@ const { client } = require('../index.js');
 const { theblindhobo } = require('../config.json');
 const { channelId } = require('../config.json');
 
+require('dotenv').config();
+
 
 let timeout = false;
 const removeTimeout = () => {
@@ -11,7 +13,7 @@ const removeTimeout = () => {
 };
 
 
-const checkGasPrices = async (apikey) => {
+const checkGasPrices = async () => {
   if(!timeout) {
     // check price
     await fetch(`https://api.etherscan.io/api?module=gastracker&action=gasoracle&apikey=${process.env.ETHERSCAN_API_TOKEN}`)
@@ -32,7 +34,7 @@ const checkGasPrices = async (apikey) => {
 
 const routinelyCheck = async () => {
   try {
-    await checkGasPrices(apikey);
+    await checkGasPrices();
     await setTimeout(routinelyCheck, 1000);
   } catch(error) {
     console.log(error);
