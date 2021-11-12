@@ -32,7 +32,7 @@ const checkGasPrices = async () => {
         status: 'online',
         activities: [
           {
-            name: `FastGas: ${fastGas}`
+            name: `⚡ ${fastGas} gwei | 🚶 ${data.result.ProposeGasPrice} | 🐢 ${data.result.SafeGasPrice}`
           }
         ]
       });
