@@ -32,8 +32,7 @@ const checkGasPrices = async () => {
         status: 'online',
         activities: [
           {
-            name: `FastGas: ${fastGas}`,
-            type: "PLAYING"
+            name: `FastGas: ${fastGas}`
           }
         ]
       });
